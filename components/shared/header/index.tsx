@@ -25,9 +25,9 @@ export default async function Header() {
                 src={site.logo}
                 width={40}
                 height={40}
-                alt={`${site.name} logo`}
+                alt={`TimZone logo`}
               />
-              {site.name}
+            TimZone
             </Link>
           </div>
 

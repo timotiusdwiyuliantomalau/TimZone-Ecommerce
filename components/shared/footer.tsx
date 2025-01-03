@@ -46,7 +46,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href='/page/about-us'>
-                  {t('Footer.About name', { name: site.name })}
+                  {t('Footer.About name', { name: "TimZone" })}
                 </Link>
               </li>
             </ul>
@@ -56,7 +56,7 @@ export default function Footer() {
             <ul className='space-y-2'>
               <li>
                 <Link href='/page/sell'>
-                  {t('Footer.Sell products on', { name: site.name })}
+                  {t('Footer.Sell products on', { name: "TimZone" })}
                 </Link>
               </li>
               <li>
@@ -90,66 +90,6 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className='border-t border-gray-800'>
-          <div className='max-w-7xl mx-auto py-8 px-4 flex flex-col items-center space-y-4'>
-            <div className='flex items-center space-x-4 flex-wrap md:flex-nowrap'>
-              <Image
-                src='/icons/logo.svg'
-                alt={`${site.name} logo`}
-                width={48}
-                height={48}
-                className='w-14'
-                style={{
-                  maxWidth: '100%',
-                  height: 'auto',
-                }}
-              />{' '}
-              <Select
-                value={locale}
-                onValueChange={(value) => {
-                  router.push(pathname, { locale: value })
-                }}
-              >
-                <SelectTrigger>
-                  <SelectValue placeholder={t('Footer.Select a language')} />
-                </SelectTrigger>
-                <SelectContent>
-                  {locales.map((lang, index) => (
-                    <SelectItem key={index} value={lang.code}>
-                      <Link
-                        className='w-full flex items-center gap-1'
-                        href={pathname}
-                        locale={lang.code}
-                      >
-                        <span className='text-lg'>{lang.icon}</span> {lang.name}
-                      </Link>
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              <Select
-                value={currency}
-                onValueChange={(value) => {
-                  setCurrency(value)
-                  window.scrollTo(0, 0)
-                }}
-              >
-                <SelectTrigger>
-                  <SelectValue placeholder={t('Footer.Select a currency')} />
-                </SelectTrigger>
-                <SelectContent>
-                  {availableCurrencies
-                    .filter((x) => x.code)
-                    .map((currency, index) => (
-                      <SelectItem key={index} value={currency.code}>
-                        {currency.name} ({currency.code})
-                      </SelectItem>
-                    ))}
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-        </div>
       </div>
       <div className='p-4'>
         <div className='flex justify-center  gap-3 text-sm'>
@@ -160,10 +100,10 @@ export default function Footer() {
           <Link href='/page/help'>{t('Footer.Help')}</Link>
         </div>
         <div className='flex justify-center text-sm'>
-          <p> © {site.copyright}</p>
+          <p> © Timotius Malau | 2024</p>
         </div>
         <div className='mt-8 flex justify-center text-sm text-gray-400'>
-          {site.address} | {site.phone}
+          Indonesia | +6280233243
         </div>
       </div>
     </footer>
