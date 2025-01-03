@@ -2,21 +2,9 @@
 import { ChevronUp } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import useSettingStore from "@/hooks/use-setting-store";
-import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter } from "@/i18n/routing";
-import { i18n } from "@/i18n-config";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
-  const router = useRouter();
-  const pathname = usePathname();
-  const {
-    setting: { site, availableCurrencies, currency },
-    setCurrency,
-  } = useSettingStore();
-  const { locales } = i18n;
-
-  const locale = useLocale();
   const t = useTranslations();
   return (
     <footer className="bg-black  text-white underline-link">
