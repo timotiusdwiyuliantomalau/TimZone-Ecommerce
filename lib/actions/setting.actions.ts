@@ -16,21 +16,10 @@ export const getNoCachedSetting = async (): Promise<ISettingInput> => {
 };
 
 export const getSetting = async (): Promise<ISettingInput> => {
-  if (globalForSettings.cachedSettings) {
-    globalForSettings.cachedSettings.site.name = "TimZone";
-    globalForSettings.cachedSettings.site.address = "Indonesia";
-    globalForSettings.cachedSettings.site.phone = "+62882329194";
-    globalForSettings.cachedSettings.site.copyright = "Timotius";
-    globalForSettings.cachedSettings.site.description = "Online Store";
-    globalForSettings.cachedSettings.site.slogan = "Your Favorite Store";
-  }
   if (!globalForSettings.cachedSettings) {
-    console.log("oke");
     await connectToDatabase();
-    const setting = await Setting.findOne().lean();
-    globalForSettings.cachedSettings = setting
-      ? JSON.parse(JSON.stringify(setting))
-      : data.settings[0];
+    // const setting = await Setting.findOne().lean();
+    globalForSettings.cachedSettings = data.settings[0];
   }
   return globalForSettings.cachedSettings as ISettingInput;
 };
