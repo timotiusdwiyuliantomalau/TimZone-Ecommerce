@@ -1,17 +1,17 @@
-// next.config.ts
-import { NextConfig } from 'next';
+import type { NextConfig } from 'next'
+import withNextIntl from 'next-intl/plugin'
 
-const nextConfig: NextConfig = {
-  reactStrictMode: true,
-  eslint: {
-    // Menonaktifkan linting selama build
-    ignoreDuringBuilds: true,
-  },
+const nextConfig: NextConfig = withNextIntl()({
+  /* config options here */
   images: {
-    // Mengonfigurasi domains yang diperbolehkan untuk gambar
-    domains: ['example.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'utfs.io',
+        port: '',
+      },
+    ],
   },
-  // Anda dapat menambahkan pengaturan lain sesuai kebutuhan
-};
+})
 
-export default nextConfig;
+export default nextConfig
