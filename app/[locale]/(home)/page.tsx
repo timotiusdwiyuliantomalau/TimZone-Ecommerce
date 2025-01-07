@@ -11,7 +11,6 @@ import {
 } from '@/lib/actions/product.actions'
 import { getSetting } from '@/lib/actions/setting.actions'
 import { toSlug } from '@/lib/utils'
-import { getTranslations } from 'next-intl/server'
 
 export default async function HomePage() {
   const { carousels } = await getSetting()
